@@ -8,11 +8,14 @@
     <body>
         <header>
             <p>  Aplicación Flask 1 de BZ XII </p>
-            <p>
+            <nav>
                 <a href="/">Home</a> |
-                <a href="/nuevo">Alta</a>
-            </p>
+                <a href="/nuevo">Alta</a> |
+                <a href="/modificar"> Modificar</a>|
+                <a href="/Borrar"> Borrar</a>   
+            </nav>
         </header>   
+
         <section>
             {% block pageContent %}{% endblock %}  
         </section>

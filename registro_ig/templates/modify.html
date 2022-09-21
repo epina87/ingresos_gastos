@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block pageContent %}
+            <h1>Listado de Ingresos-Gastos</h1>
+            <form action="/modificar/{{movModify[0]}}" method="post">
+                <label for="date">Fecha:</label>
+                <br>
+                <input type="date" name="date" id="date" value="{{ movModify[1] }}" required >
+                <br>
+                {{ msgErrors.date }}
+                <br><br>
+
+                <label for="concept"> Concepto:</label>
+                <br>
+                <input type="text" name="concept" id="concept"  value="{{ movModify[2] }}" >
+                <br>
+                {{ msgErrors.concept }}
+                <br><br>
+
+                <label for="quantity">Cantidad:</label>
+                <br>
+                <input type="number" name="quantity" id="quantity"  step="0.01"  value="{{ movModify[3] }}" >
+                <br>
+                {{ msgErrors.quantity }}
+
+                <br><br>
+
+                <input type="submit" value="modificar">
+
+
+            </form>
+            
+            <p> <a href="/"> Volver</a>  </p> 
+{% endblock %} 
