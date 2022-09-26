@@ -1,43 +1,33 @@
-{% extends "base.html" %}
-
+{% extends "base.html" %}            
+            
 {% block pageContent %}
-            <h1>Listado de Ingresos-Gastos</h1>
+            <h1>Listado de <em>Ingresos-Gastos</em></h1>
+            <h2>Un simulacro de contabilidad</h2>
+            
             <table>
                 <thead>
                     <tr>
-                        
                         <th>Fecha</th>
+                        <th>Concepto</th>
                         <th>Cantidad</th>
-                        <th>Cantidad</th>
-                        <th>Actión</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
-
-
                 <tbody>
-                    {% for registro in moviments %}
-                    <tr>                        
-                        <td>{{ registro[1] }}</td>
-                        <td>{{ registro[2] }}</td>
-                        <td>{{ registro[3] }} €</td>
-                        <td><a href="/borrar/{{ registro[0] }}">Borrar</a></td>
-                        <td><a href="/modificar/{{ registro[0] }}">Modificar</a></td>
+                    {% for registro in movements %}
+                    {# registro es cada una de las filas de la lista movements #}
+                    <tr>
+                        <td>{{ registro[1] }}</td><!-- Fecha -->
+                        <td>{{ registro[2] }}</td><!-- concepto -->
+                        <td>{{ registro[3] }} €<!-- esto debería sacarlo bien formateado --></td>
+                        <td>
+                            <a href="/borrar/{{ registro[0] }}">Borrar</a>
+                            <a href="/modificar/{{ registro[0] }}">Modificar</a>
+                        </td>
                     </tr>
                     {% endfor %}
-
                 </tbody>
-
-                <tfoot>
-                    <tr>
-                        <td>Total  = {{totalReg}}</td>
-                    </tr>
-
-                </tfoot>
-
+                <tr></tr>
             </table>
-
-            <a href="/nuevo"> Añadir</a>
-
-
-{% endblock %}  
-        
+            <a href="/nuevo">Añadir</a>  
+{% endblock %}
